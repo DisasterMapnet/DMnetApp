@@ -1,0 +1,61 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>National Disaster Overview Map</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-1.0.0-b1/leaflet.css" />
+<link rel="stylesheet" href="css/l.geosearch.css" />
+<link rel="stylesheet" href="css/Control.FullScreen.css" />
+
+
+
+<style type="text/css">
+    body {
+      padding: 0;
+      margin: 0;
+    }
+    html, body, #map {
+      height: 100%;
+    }
+	.popup{
+	font: 14px Arial;
+	width:1000;
+	}
+	.fullscreen-icon { background-image: url(icon-fullscreen.png); }
+		/* on selector per rule as explained here : http://www.sitepoint.com/html5-full-screen-api/ */
+		#map:-webkit-full-screen { width: 100% !important; height: 100% !important; z-index: 99999; }
+		#map:-moz-full-screen { width: 100% !important; height: 100% !important; z-index: 99999; }
+		#map:full-screen { width: 100% !important; height: 100% !important; z-index: 99999; }
+		.leaflet-pseudo-fullscreen { position: fixed !important; width: 100% !important; height: 100% !important; top: 0px !important; left: 0px !important; z-index: 99999; }	
+</style>		
+
+<script src='/google_analytics_auto.js'></script>
+		
+</head>
+
+<body>
+
+<!- Add leaflet & plugin scripts ->
+<script src="http://cdn.leafletjs.com/leaflet-1.0.0-b1/leaflet.js"></script>
+<script src="http://www.mapquestapi.com/sdk/leaflet/v2.s/mq-map.js?key=vWEtJlEPfKrgFAfzZ9YCWAyVI6FlDhvH"></script>
+<script src="http://www.mapquestapi.com/sdk/leaflet/v2.s/mq-traffic.js?key=vWEtJlEPfKrgFAfzZ9YCWAyVI6FlDhvH"></script>
+<script src="js/leaflet.wms.js"></script>
+<script src="js/l.control.geosearch.js"></script>
+<script src="js/l.geosearch.provider.google.js"></script>
+<script src="js/Control.FullScreen.js"></script>
+<script src="js/leaflet-omnivore.js"></script>
+
+<div id="map"></div>
+<-! style="width: 1000px; height: 500px" ->
+
+<script src="js/DMnetMap.js"></script>
+<script>
+alert("This experimental service is currently under development and provided without any warranty or guarantee.  We are aware of the issue concerning the format and performance of the popup infowindows, and we are working to resolve this issue.  In the meantime, if you are having trouble using popup windows with a specific layer, we suggest you turn off all of the layers except that one.  You can do this using the layer control (top right).");
+</script>
+
+</body>
+</html>
