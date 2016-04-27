@@ -188,7 +188,9 @@ wms.Source = L.Layer.extend({
         if (!this._map) {
             return;
         }
+		if (info.indexOf("h5") > -1) {
         this._map.openPopup(info, latlng);
+		}
     },
 
     'showWaiting': function() {
