@@ -41,20 +41,25 @@ var NightLights = L.tileLayer('http://map1.vis.earthdata.nasa.gov/wmts-webmerc/V
 	tilematrixset: 'GoogleMapsCompatible_Level'
 	});
 
+	
 // add storm reports
 var StormReports = L.layerGroup();
 
 TornadoToday = omnivore.csv("http://www.spc.noaa.gov/climo/reports/today_torn.csv");
 TornadoToday.addTo(StormReports);
+
 HailToday = omnivore.csv("http://www.spc.noaa.gov/climo/reports/today_hail.csv"); 
 HailToday.addTo(StormReports);
+
 WindToday = omnivore.csv('http://www.spc.noaa.gov/climo/reports/today_wind.csv'); 
 WindToday.addTo(StormReports);
 
 TornadoYest = omnivore.csv('http://www.spc.noaa.gov/climo/reports/yesterday_torn.csv'); 
 TornadoYest.addTo(StormReports);
+
 HailYest = omnivore.csv('http://www.spc.noaa.gov/climo/reports/yesterday_hail.csv');
 HailYest.addTo(StormReports);
+
 WindYest = omnivore.csv('http://www.spc.noaa.gov/climo/reports/yesterday_wind.csv'); 
 WindYest.addTo(StormReports);
 
