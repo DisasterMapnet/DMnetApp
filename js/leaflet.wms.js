@@ -35,7 +35,9 @@ var wms = {};
 wms.Source = L.Layer.extend({
     'options': {
         'tiled': false,
-        'identify': true
+        'identify': true,
+
+
     },
 
     'initialize': function(url, options) {
@@ -168,7 +170,7 @@ wms.Source = L.Layer.extend({
             'Y': Math.round(point.y),
 			'info_format': 'text/html',
 			'feature_count': 10,
-			'propertyName' : ''
+			
         };
         return L.extend({}, wmsParams, infoParams);
     },

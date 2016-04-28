@@ -1,5 +1,3 @@
-//Webmap script
-
 var map = new L.Map('map',
 {maxzoom:19,zoom: 4, center: new L.LatLng(38, -94)
 });
@@ -163,7 +161,46 @@ floods.addTo(hydro);
 
 hydro.addTo(map);
 
-//add shelters
+/* New shelter markers. Can change the popup info to make it a bit neater. 
+ * Utilises esri-leaflet and REST from fema instead of SOAP.
+ * useCors: false disables circumnavigates CORs problem
+ * 28-Apr-2016, OJB
+ */ 
+
+
+var URL3 = 'http://gis.fema.gov/REST/services/NSS/OpenShelters/MapServer/0/' 
+
+var source3 = L.esri.featureLayer({ 
+	url: URL3, 
+	useCors: false,
+	pointToLayer: function(feature, latlng) {
+		   var smallIcon = L.icon({
+                      iconSize: [14, 14],
+                      iconAnchor: [7, 7],
+                      popupAnchor:  [1, -24],
+                      iconUrl: 'http://gis.fema.gov/REST/services/NSS/OpenShelters/MapServer/0/images/655c6833.png'
+   });
+
+   		return L.marker(latlng, {icon: smallIcon});
+	}
+});
+
+// Binds the popup using info from geoJson
+
+source3.bindPopup(function(features){
+	return "Name: " + features.feature.properties.SHELTER_NAME;
+});
+
+map.addLayer(source3);
+
+/* Old method of adding shelters. Created problem with CORs
+ * The png also covered all areas so a click event regitered a getFeatureInfo call
+ * even if there were no visible features.
+ * This tripped up leaflet.wms.js into trying to use an iframe workaround
+ * Iframe failed 
+ * 28-Apr-2016, OJB
+ */
+
 var URL3 = 'http://gis.fema.gov/SOAP/NSS/OpenShelters/MapServer/WMSServer'
 
 var source3 = L.WMS.source(
@@ -173,7 +210,7 @@ var source3 = L.WMS.source(
 		"transparent": "true",
 		"identify": true
 	}        
-)
+);
 
 var response = L.layerGroup();
 
@@ -181,6 +218,8 @@ shelters = source3.getLayer('0');
 shelters.addTo(response);
 
 response.addTo(map);
+
+
 
 //Add mapquest traffic
 var traffic = L.layerGroup();
@@ -220,7 +259,8 @@ var overlayMaps =  {
 'Flood Hazards': hydro,
 'Precipitation': precip,
 'Traffic': traffic,
-'Shelters': response
+'Shelters-REST': source3,
+'Shelters-SOAP': response
 };
 
 L.control.layers(basemapscontrol, overlayMaps).addTo(map);
