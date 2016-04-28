@@ -201,10 +201,10 @@ map.addLayer(source3);
  * 28-Apr-2016, OJB
  */
 
-var URL3 = 'http://gis.fema.gov/SOAP/NSS/OpenShelters/MapServer/WMSServer'
+var URL4 = 'http://gis.fema.gov/SOAP/NSS/OpenShelters/MapServer/WMSServer'
 
 var source3 = L.WMS.source(
-	URL3,
+	URL4,
 	{
 		"format": "image/png",
 		"transparent": "true",
