@@ -40,26 +40,75 @@ var NightLights = L.tileLayer('http://map1.vis.earthdata.nasa.gov/wmts-webmerc/V
 	});
 
 	
-// add storm reports
+/* add storm reports */
 var StormReports = L.layerGroup();
 
-TornadoToday = omnivore.csv("http://www.spc.noaa.gov/climo/reports/today_torn.csv");
-TornadoToday.addTo(StormReports);
+/* custom icon details */
+var tornadoIcon = L.icon({
+  iconUrl: 'http://disastermap.net/WebMapApps/icons/tornado.png',
+  iconSize:     [15, 15], // size of the icon
+});
 
-HailToday = omnivore.csv("http://www.spc.noaa.gov/climo/reports/today_hail.csv"); 
-HailToday.addTo(StormReports);
+var hailIcon = L.icon({
+  iconUrl: 'http://disastermap.net/WebMapApps/icons/hail.png',
+  iconSize:     [15, 15], // size of the icon
+});
 
-WindToday = omnivore.csv('http://www.spc.noaa.gov/climo/reports/today_wind.csv'); 
-WindToday.addTo(StormReports);
+var windIcon = L.icon({
+  iconUrl: 'http://disastermap.net/WebMapApps/icons/wind.png',
+  iconSize:     [15, 15], // size of the icon
+});
 
-TornadoYest = omnivore.csv('http://www.spc.noaa.gov/climo/reports/yesterday_torn.csv'); 
-TornadoYest.addTo(StormReports);
+/* today's reports */
+omnivore.csv('localdata/today_tornado.csv') //csv location
+  .on('ready', function(layer) {
+    this.eachLayer(function(marker) {
+      marker.setIcon(tornadoIcon); //name of icon
+    });
+  })
+  .addTo(StormReports);
 
-HailYest = omnivore.csv('http://www.spc.noaa.gov/climo/reports/yesterday_hail.csv');
-HailYest.addTo(StormReports);
+omnivore.csv('localdata/today_hail.csv') //csv location
+  .on('ready', function(layer) {
+    this.eachLayer(function(marker) {
+      marker.setIcon(hailIcon); //name of icon
+    });
+  })
+  .addTo(StormReports);
 
-WindYest = omnivore.csv('http://www.spc.noaa.gov/climo/reports/yesterday_wind.csv'); 
-WindYest.addTo(StormReports);
+omnivore.csv('localdata/today_wind.csv') //csv location
+  .on('ready', function(layer) {
+    this.eachLayer(function(marker) {
+      marker.setIcon(windIcon); //name of icon
+    });
+  })
+  .addTo(StormReports);
+
+
+/* yesterday's reports */
+omnivore.csv('localdata/yesterday_tornado.csv') //csv location
+  .on('ready', function(layer) {
+    this.eachLayer(function(marker) {
+      marker.setIcon(tornadoIcon); //name of icon
+    });
+  })
+  .addTo(StormReports);
+
+omnivore.csv('localdata/yesterday_hail.csv') //csv location
+  .on('ready', function(layer) {
+    this.eachLayer(function(marker) {
+      marker.setIcon(hailIcon); //name of icon
+    });
+  })
+  .addTo(StormReports);
+
+omnivore.csv('localdata/yesterday_wind.csv') //csv location
+  .on('ready', function(layer) {
+    this.eachLayer(function(marker) {
+      marker.setIcon(windIcon); //name of icon
+    });
+  })
+  .addTo(StormReports);
 
 StormReports.addTo(map);
 
