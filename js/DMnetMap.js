@@ -39,26 +39,26 @@ var NightLights = L.tileLayer('http://map1.vis.earthdata.nasa.gov/wmts-webmerc/V
 	tilematrixset: 'GoogleMapsCompatible_Level'
 	});
 
-	
+
 // add storm reports
 var StormReports = L.layerGroup();
 
-TornadoToday = omnivore.csv("http://www.spc.noaa.gov/climo/reports/today_torn.csv");
+TornadoToday = omnivore.csv("localdata/StormReports/today_torn.csv");
 TornadoToday.addTo(StormReports);
 
-HailToday = omnivore.csv("http://www.spc.noaa.gov/climo/reports/today_hail.csv"); 
+HailToday = omnivore.csv("localdata/StormReports/today_hail.csv");
 HailToday.addTo(StormReports);
 
-WindToday = omnivore.csv('http://www.spc.noaa.gov/climo/reports/today_wind.csv'); 
+WindToday = omnivore.csv('localdata/StormReports/today_wind.csv');
 WindToday.addTo(StormReports);
 
-TornadoYest = omnivore.csv('http://www.spc.noaa.gov/climo/reports/yesterday_torn.csv'); 
+TornadoYest = omnivore.csv('localdata/StormReports/yesterday_torn.csv');
 TornadoYest.addTo(StormReports);
 
-HailYest = omnivore.csv('http://www.spc.noaa.gov/climo/reports/yesterday_hail.csv');
+HailYest = omnivore.csv('localdata/StormReports/yesterday_hail.csv');
 HailYest.addTo(StormReports);
 
-WindYest = omnivore.csv('http://www.spc.noaa.gov/climo/reports/yesterday_wind.csv'); 
+WindYest = omnivore.csv('localdata/StormReports/yesterday_wind.csv');
 WindYest.addTo(StormReports);
 
 StormReports.addTo(map);
@@ -85,7 +85,7 @@ var source2 = L.WMS.source(
 		"transparent": "true",
 		"opacity":  0.5,
 		"identify": true
-	}        
+	}
 )
 
 //add tectonic layers to map
@@ -105,7 +105,7 @@ othervolcanoes.addTo(tectonic);
 
 tectonic.addTo(map);
 
-//add weather layer group 
+//add weather layer group
 var weather = L.layerGroup();
 
 advisory = source2.getLayer('0');
@@ -153,7 +153,7 @@ wildfires.addTo(fires);
 
 fires.addTo(map);
 
-//add hydro layer group 
+//add hydro layer group
 var hydro = L.layerGroup();
 
 floods = source2.getLayer('15');
@@ -161,17 +161,17 @@ floods.addTo(hydro);
 
 hydro.addTo(map);
 
-/* New shelter markers. Can change the popup info to make it a bit neater. 
+/* New shelter markers. Can change the popup info to make it a bit neater.
  * Utilises esri-leaflet and REST from fema instead of SOAP.
  * useCors: false disables circumnavigates CORs problem
  * 28-Apr-2016, OJB
- */ 
+ */
 
 
-var URL3 = 'http://gis.fema.gov/REST/services/NSS/OpenShelters/MapServer/0/' 
+var URL3 = 'http://gis.fema.gov/REST/services/NSS/OpenShelters/MapServer/0/'
 
-var source3 = L.esri.featureLayer({ 
-	url: URL3, 
+var source3 = L.esri.featureLayer({
+	url: URL3,
 	useCors: false,
 	pointToLayer: function(feature, latlng) {
 		   var smallIcon = L.icon({
@@ -197,7 +197,7 @@ map.addLayer(source3);
  * The png also covered all areas so a click event regitered a getFeatureInfo call
  * even if there were no visible features.
  * This tripped up leaflet.wms.js into trying to use an iframe workaround
- * Iframe failed 
+ * Iframe failed
  * 28-Apr-2016, OJB
  */
 
@@ -209,7 +209,7 @@ var source3 = L.WMS.source(
 		"format": "image/png",
 		"transparent": "true",
 		"identify": true
-	}        
+	}
 );
 
 var response = L.layerGroup();
@@ -246,7 +246,7 @@ var basemapscontrol = {
     	"OpenStreetMap (Black & White)": osmbw,
 	"OpenStreetMap (HOT)" : osmHOT,
 	"OpenTopoMap": OpenTopoMap,
-	"MapQuest Imagery":  MapQuestAerial, 
+	"MapQuest Imagery":  MapQuestAerial,
 	"Earth at Night": NightLights
 };
 
