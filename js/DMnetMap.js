@@ -58,6 +58,21 @@ var windIcon = L.icon({
   iconSize:     [15, 15], // size of the icon
 });
 
+var tornadoIcon2 = L.icon({
+  iconUrl: 'http://disastermap.net/WebMapApps/icons/tornado_yel.png',
+  iconSize:     [12, 12], // size of the icon
+});
+
+var hailIcon2 = L.icon({
+  iconUrl: 'http://disastermap.net/WebMapApps/icons/hail_yel.png',
+  iconSize:     [12, 12], // size of the icon
+});
+
+var windIcon2 = L.icon({
+  iconUrl: 'http://disastermap.net/WebMapApps/icons/wind_yel.png',
+  iconSize:     [12, 12], // size of the icon
+});
+
 /* today's reports */
 omnivore.csv('localdata/today_tornado.csv') //csv location
   .on('ready', function(layer) {
@@ -88,7 +103,7 @@ omnivore.csv('localdata/today_wind.csv') //csv location
 omnivore.csv('localdata/yesterday_tornado.csv') //csv location
   .on('ready', function(layer) {
     this.eachLayer(function(marker) {
-      marker.setIcon(tornadoIcon); //name of icon
+      marker.setIcon(tornadoIcon2); //name of icon
     });
   })
   .addTo(StormReports);
@@ -96,7 +111,7 @@ omnivore.csv('localdata/yesterday_tornado.csv') //csv location
 omnivore.csv('localdata/yesterday_hail.csv') //csv location
   .on('ready', function(layer) {
     this.eachLayer(function(marker) {
-      marker.setIcon(hailIcon); //name of icon
+      marker.setIcon(hailIcon2); //name of icon
     });
   })
   .addTo(StormReports);
@@ -104,7 +119,7 @@ omnivore.csv('localdata/yesterday_hail.csv') //csv location
 omnivore.csv('localdata/yesterday_wind.csv') //csv location
   .on('ready', function(layer) {
     this.eachLayer(function(marker) {
-      marker.setIcon(windIcon); //name of icon
+      marker.setIcon(windIcon2); //name of icon
     });
   })
   .addTo(StormReports);
