@@ -44,17 +44,17 @@ var StormReports = L.layerGroup();
 
 /* custom icon details */
 var tornadoIcon = L.icon({
-  iconUrl: 'http://disastermap.net/WebMapApps/icons/tornado.png',
+  iconUrl: 'http://disastermap.net/WebMapApps/icons/tornado_red.png',
   iconSize:     [15, 15], // size of the icon
 });
 
 var hailIcon = L.icon({
-  iconUrl: 'http://disastermap.net/WebMapApps/icons/hail.png',
+  iconUrl: 'http://disastermap.net/WebMapApps/icons/hail_red.png',
   iconSize:     [15, 15], // size of the icon
 });
 
 var windIcon = L.icon({
-  iconUrl: 'http://disastermap.net/WebMapApps/icons/wind.png',
+  iconUrl: 'http://disastermap.net/WebMapApps/icons/wind_red.png',
   iconSize:     [15, 15], // size of the icon
 });
 
