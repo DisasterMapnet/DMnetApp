@@ -44,32 +44,32 @@ var StormReports = L.layerGroup();
 
 /* custom icon details */
 var tornadoIcon = L.icon({
-  iconUrl: '/icons/tornado_red.png',
+  iconUrl: '../icons/tornado_red.png',
   iconSize:     [15, 15], // size of the icon
 });
 
 var hailIcon = L.icon({
-  iconUrl: '/icons/hail_red.png',
+  iconUrl: '../icons/hail_red.png',
   iconSize:     [15, 15], // size of the icon
 });
 
 var windIcon = L.icon({
-  iconUrl: '/icons/wind_red.png',
+  iconUrl: '../icons/wind_red.png',
   iconSize:     [15, 15], // size of the icon
 });
 
 var tornadoIcon2 = L.icon({
-  iconUrl: '/icons/tornado_yel.png',
+  iconUrl: '../icons/tornado_yel.png',
   iconSize:     [12, 12], // size of the icon
 });
 
 var hailIcon2 = L.icon({
-  iconUrl: '/icons/hail_yel.png',
+  iconUrl: '../icons/hail_yel.png',
   iconSize:     [12, 12], // size of the icon
 });
 
 var windIcon2 = L.icon({
-  iconUrl: '/icons/wind_yel.png',
+  iconUrl: '../icons/wind_yel.png',
   iconSize:     [12, 12], // size of the icon
 });
 
