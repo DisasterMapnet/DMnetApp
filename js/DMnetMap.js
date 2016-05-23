@@ -250,7 +250,14 @@ var source3 = L.esri.featureLayer({
 // Binds the popup using info from geoJson
 
 source3.bindPopup(function(features){
-	return "Name: " + features.feature.properties.SHELTER_NAME;
+	return "Name: " + features.feature.properties.SHELTER_NAME + "Address: " +  features.feature.properties.ADDRESS +
+		"City: " + features.feature.properties.CITY + "State: "+ features.feature.properties.STATE + "Zip: " +
+		+ features.feature.properties.ZIP	
+		;
+
+
+
+	
 });
 
 map.addLayer(source3);
@@ -263,7 +270,7 @@ map.addLayer(source3);
  * 28-Apr-2016, OJB
  */
 
-var URL4 = 'http://gis.fema.gov/SOAP/NSS/OpenShelters/MapServer/WMSServer'
+/*var URL4 = 'http://gis.fema.gov/SOAP/NSS/OpenShelters/MapServer/WMSServer'
 
 var source3 = L.WMS.source(
 	URL4,
@@ -278,10 +285,8 @@ var response = L.layerGroup();
 
 shelters = source3.getLayer('0');
 shelters.addTo(response);
-
+*/
 response.addTo(map);
-
-
 
 //Add mapquest traffic
 var traffic = L.layerGroup();
