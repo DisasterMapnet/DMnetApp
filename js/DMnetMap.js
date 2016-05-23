@@ -250,8 +250,8 @@ var source3 = L.esri.featureLayer({
 // Binds the popup using info from geoJson
 
 source3.bindPopup(function(features){
-	return "Name: " + features.feature.properties.SHELTER_NAME + "/nAddress: " +  features.feature.properties.ADDRESS +
-		"/nCity: " + features.feature.properties.CITY + "/nState: "+ features.feature.properties.STATE + "/nZip: " +
+	return "Name: " + features.feature.properties.SHELTER_NAME + /n "Address: " +  features.feature.properties.ADDRESS +
+		/n "City: " + features.feature.properties.CITY + /n "State: "+ features.feature.properties.STATE + /n "Zip: " +
 		+ features.feature.properties.ZIP	
 		;
 
